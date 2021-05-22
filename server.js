@@ -1,18 +1,25 @@
-import express from 'express';
-import dotenv from 'dotenv';
-import config from './config';
-import mongoose from 'mongoose';
-import userRoute from './routes/userRoute';
-import productRoute from './routes/productRoute';
-import bodyParser from 'body-parser';
-dotenv.config();
+import express from "express";
+import config from "./config";
+import mongoose from "mongoose";
+import userRoute from "./routes/userRoute";
+import productRoute from "./routes/productRoute";
+import orderRoute from "./routes/orderRoute";
+import bodyParser from "body-parser";
+import cors from "cors";
 
 const app = express();
+
+app.use(cors());
+
 app.use(bodyParser.json());
-app.use('/api/users', userRoute);
-app.use('/api/products', productRoute);
+app.use("/api/users", userRoute);
+app.use("/api/products", productRoute);
+app.use("/api/orders", orderRoute);
+
+var port = process.env.PORT || 5000;
 
 const mongodbUrl = config.MONGODB_URL;
+
 mongoose
     .connect(
         mongodbUrl,
@@ -20,10 +27,10 @@ mongoose
             useNewUrlParser: true,
             useUnifiedTopology: true,
         },
-        () => console.log('MongoDB connected')
+        () => console.log("MongoDB connected")
     )
     .catch((error) => console.log(error.reason));
 
-app.listen(5000, () => {
-    console.log(`Server running at Port: 5000`);
+app.listen(port, () => {
+    console.log(`Server running at Port: ${port}`);
 });

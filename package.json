@@ -4,7 +4,7 @@
     "description": "",
     "main": "server.js",
     "scripts": {
-        "start": "nodemon --watch ./ --exec node server.js"
+        "start": "nodemon --watch ./ --exec node ./server.js"
     },
     "author": "",
     "license": "ISC",

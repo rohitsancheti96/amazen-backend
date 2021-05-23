@@ -1,11 +1,11 @@
-import express from "express";
-import config from "./config";
-import mongoose from "mongoose";
-import userRoute from "./routes/userRoute";
-import productRoute from "./routes/productRoute";
-import orderRoute from "./routes/orderRoute";
-import bodyParser from "body-parser";
-import cors from "cors";
+const express = require("express");
+const config = require("./config");
+const mongoose = require("mongoose");
+const userRoute = require("./routes/userRoute");
+const productRoute = require("./routes/productRoute");
+const orderRoute = require("./routes/orderRoute");
+const bodyParser = require("body-parser");
+const cors = require("cors");
 
 const app = express();
 

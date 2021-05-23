@@ -37,4 +37,4 @@ router.post("/", isAuth, async (req, res) => {
     }
 });
 
-export default router;
+module.exports = router;
